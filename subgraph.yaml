@@ -1,0 +1,31 @@
+specVersion: 0.0.4
+repository: https://github.com/nuthan2x/perp-copyTrading-core
+description: A subgraph for the VaultFactory contract
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: VaultFactory
+    network: arbitrum-goerli
+    source:
+      address: "0x6aB19faC1fcaaa7D707e1111b2420F282Bd087d9"
+      abi: VaultFactory
+      startBlock: 16652727 
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Vault
+        - TraderData
+      abis:
+        - name: VaultFactory
+          file: ./abis/VaultFactory.json
+      eventHandlers:
+        - event: CreateVault(address,bytes32,address,address)
+          handler: handleCreateVault
+        - event: DeleteVault(address,address)
+          handler: handleDeleteVault
+        - event: Trader(indexed bytes32,indexed address,bool,uint16,address)
+          handler: handleTrader
+      file: ./src/mapping.ts
