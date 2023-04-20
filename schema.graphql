@@ -1,0 +1,23 @@
+type Vault @entity {
+  id: ID!
+  blockNumber: Int!
+  txhash: String!
+  creator: String!
+  name: String!
+  implementation: String!
+  proxy: String!
+  status: String!
+  timestamp: Int!
+}
+
+type TraderData @entity {
+  id: ID!
+  vault: String!
+  trader: String!
+  inverseCopyTrade: Boolean!
+  copySizeBPS: Int!
+  defaultCollateral: String!
+  blockNumber: Int!
+  txhash: String!
+  timestamp: Int!
+}
