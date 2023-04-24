@@ -1,0 +1,19 @@
+{
+  "name": "vault-factory1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphprotocol/graph-ts": "^0.29.3",
+    "ethers": "^5.4.6",
+    "moment": "^2.29.1"
+  }
+}
